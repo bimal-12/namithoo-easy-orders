@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import WhatsAppOrder from "./WhatsAppOrder";
 
 interface ProductCardProps {
   name: string;
@@ -11,6 +12,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ name, price, weight, type, image, description }: ProductCardProps) => {
+  const { handleWhatsAppOrder } = WhatsAppOrder({ productName: name, price, weight });
   return (
     <Card className="group hover:shadow-warm transition-all duration-300 hover:scale-105 transform bg-card border-border overflow-hidden">
       <div className="relative overflow-hidden">
@@ -32,8 +34,8 @@ const ProductCard = ({ name, price, weight, type, image, description }: ProductC
         <div className="text-2xl font-bold text-primary">₹{price}</div>
       </CardContent>
       <CardFooter>
-        <Button variant="fresh" className="w-full">
-          Order Now
+        <Button variant="fresh" className="w-full" onClick={handleWhatsAppOrder}>
+          Order via WhatsApp 💬
         </Button>
       </CardFooter>
     </Card>

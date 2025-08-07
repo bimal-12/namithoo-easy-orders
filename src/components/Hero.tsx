@@ -23,10 +23,20 @@ const Hero = () => {
           Each jar tells a story of heritage, flavor, and culinary craftsmanship.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in slide-in-from-bottom duration-1000 delay-500">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-6"
+            onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Shop Pickles
           </Button>
-          <Button variant="outline-warm" size="lg" className="text-lg px-8 py-6">
+          <Button 
+            variant="outline-warm" 
+            size="lg" 
+            className="text-lg px-8 py-6"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Our Story
           </Button>
         </div>

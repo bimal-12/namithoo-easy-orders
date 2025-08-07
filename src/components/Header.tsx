@@ -14,7 +14,18 @@ const Header = () => {
           <a href="#home" className="text-foreground hover:text-primary transition-colors">Home</a>
           <a href="#products" className="text-foreground hover:text-primary transition-colors">Products</a>
           <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-          <Button variant="outline-warm" size="sm">Order Now</Button>
+          <Button 
+            variant="outline-warm" 
+            size="sm"
+            onClick={() => {
+              const phoneNumber = "9779844280175";
+              const message = "Hi! I'm interested in Namithoo pickles. Can you help me with my order? 🥒";
+              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, '_blank');
+            }}
+          >
+            Order via WhatsApp 💬
+          </Button>
         </nav>
       </div>
     </header>
