@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Namithoo Brand Colors
+				turmeric: 'hsl(var(--turmeric))',
+				'lime-green': 'hsl(var(--lime-green))',
+				'spice-brown': 'hsl(var(--spice-brown))',
+				'chili-red': 'hsl(var(--chili-red))',
+				cream: 'hsl(var(--cream))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
