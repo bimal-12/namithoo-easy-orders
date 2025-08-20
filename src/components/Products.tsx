@@ -7,6 +7,7 @@ import mixedVeggieImage from "@/assets/mixed-veggie-pickle.jpg";
 const Products = () => {
   const products = [
     {
+      id: "spicy-mango",
       name: "Spicy Mango",
       price: 200,
       weight: "250g",
@@ -15,6 +16,7 @@ const Products = () => {
       description: "Tangy raw mango pieces perfectly balanced with aromatic spices and a hint of sweetness."
     },
     {
+      id: "lemon-chili",
       name: "Lemon Chili",
       price: 180,
       weight: "250g",
@@ -23,6 +25,7 @@ const Products = () => {
       description: "Zesty lemon pickle with fresh green chilies that awakens your taste buds."
     },
     {
+      id: "garlic",
       name: "Garlic Pickle",
       price: 220,
       weight: "250g",
@@ -31,6 +34,7 @@ const Products = () => {
       description: "Rich garlic cloves marinated in traditional mustard oil with authentic spices."
     },
     {
+      id: "mixed-veggie",
       name: "Mixed Veggie",
       price: 200,
       weight: "250g",
@@ -53,8 +57,8 @@ const Products = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
           ))}
         </div>
       </div>

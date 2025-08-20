@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import WhatsAppOrder from "./WhatsAppOrder";
+import { useCart } from "@/hooks/useCart";
+import { useToast } from "@/hooks/use-toast";
+import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
+  id: string;
   name: string;
   price: number;
   weight: string;
@@ -11,8 +14,25 @@ interface ProductCardProps {
   description: string;
 }
 
-const ProductCard = ({ name, price, weight, type, image, description }: ProductCardProps) => {
-  const { handleWhatsAppOrder } = WhatsAppOrder({ productName: name, price, weight });
+const ProductCard = ({ id, name, price, weight, type, image, description }: ProductCardProps) => {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      name,
+      price,
+      weight,
+      image
+    });
+    
+    toast({
+      title: "Added to Cart!",
+      description: `${name} has been added to your cart.`,
+    });
+  };
+
   return (
     <Card className="group hover:shadow-warm transition-all duration-300 hover:scale-105 transform bg-card border-border overflow-hidden">
       <div className="relative overflow-hidden">
@@ -34,8 +54,9 @@ const ProductCard = ({ name, price, weight, type, image, description }: ProductC
         <div className="text-2xl font-bold text-primary">₹{price}</div>
       </CardContent>
       <CardFooter>
-        <Button variant="fresh" className="w-full" onClick={handleWhatsAppOrder}>
-          Order via WhatsApp 💬
+        <Button variant="fresh" className="w-full" onClick={handleAddToCart}>
+          <ShoppingCart className="mr-2 h-4 w-4" />
+          Add to Cart
         </Button>
       </CardFooter>
     </Card>
